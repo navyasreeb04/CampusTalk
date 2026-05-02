@@ -1,70 +1,224 @@
 # CampusTalk
 
-CampusTalk is a MERN web application for college students with three connected modules:
+A full-stack campus engagement platform built using the MERN stack that combines:
 
-- CampusBoard: anonymous campus feed with likes, comments, trending, and MyFeed
-- SkillMap: peer-to-peer learning posts with one-to-one chat
-- PlacementPulse: anonymous placement experiences with comments and likes
+- Anonymous student social interaction
+- Peer-to-peer skill exchange
+- Placement experience sharing and analytics
 
-It also includes an admin dashboard for placement counts, companies, and skill demand trends.
+CampusTalk was designed to solve a common campus problem: students usually have information, opportunities, and peer support scattered across WhatsApp groups, clubs, placement cells, and informal circles. This platform brings them into one structured ecosystem.
 
-## Stack
+---
 
-- Frontend: React + Vite + CSS
-- Backend: Node.js + Express
-- Database: MongoDB + Mongoose
-- Auth: JWT stored in localStorage
-- API: Axios
-- Icons: lucide-react
+## Core Modules
+
+## 1. CampusBoard (Ajiogram)
+
+An anonymous campus social feed where students can:
+
+- Create text/image posts
+- Like and comment on posts
+- View trending campus discussions
+- Maintain a private personal feed
+
+### Features
+- Anonymous identity for public posts
+- Image upload support
+- Persistent comments
+- Trending algorithm based on engagement + recency
+- Light / Dark theme support
+
+---
+
+## 2. SkillMap
+
+A peer learning module where students can:
+
+- Post what they know
+- Post what they want to learn
+- Connect with other students
+- Start one-to-one discussions
+
+### Features
+- Skill matchmaking
+- Real-time chat architecture
+- Skill demand analytics for admin
+
+---
+
+## 3. PlacementPulse
+
+A placement discussion and analytics platform where students can share:
+
+- Company details
+- Salary / package
+- Online assessment experience
+- Interview rounds
+- Preparation strategies
+
+### Features
+- Anonymous discussion threads
+- Comment system
+- Placement analytics dashboard
+
+---
+
+## Admin Dashboard
+
+Admins / placement coordinators can monitor:
+
+- Most requested skills
+- Most offered skills
+- Internship vs full-time statistics
+- Placement trends
+
+### Dashboard Features
+- Animated pie charts
+- Dynamic bar charts
+- Case-insensitive skill aggregation
+- Responsive analytics layout
+
+---
+
+## Authentication & Security
+
+CampusTalk includes:
+
+- Email/password authentication
+- JWT-based session management
+- OTP-based password reset
+- Role-based access control
+
+### Access Rules
+- Students can access all student modules
+- Admins can access analytics/dashboard
+- Admins cannot access anonymous CampusBoard
+
+---
+
+## Tech Stack
+
+### Frontend
+- React (Vite)
+- CSS
+- Axios
+- React Router
+- Recharts
+- Lucide React
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Multer (image uploads)
+
+### Optional Integrations
+- Twilio (SMS OTP)
+- Nodemailer (Email OTP)
+
+---
 
 ## Project Structure
 
-```text
-backend/
-  controllers/
-  middleware/
-  models/
-  routes/
-frontend/
-  src/
-    api/
-    components/
-    pages/
-    styles/
+```bash
+CampusTalk/
+│
+├── client/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── styles/
+│   │   └── App.jsx
+│
+├── server/
+│   ├── models/
+│   ├── controllers/
+│   ├── routes/
+│   ├── middleware/
+│   ├── uploads/
+│   └── server.js
 ```
 
-## Run Locally
+---
 
-1. Install dependencies:
+## Local Setup
+
+### 1. Clone Repository
 
 ```bash
-cd backend && npm install
-cd ../frontend && npm install
+git clone <your-repo-url>
+cd CampusTalk
 ```
 
-2. Configure environment variables:
+---
 
-- Copy `backend/.env.example` to `backend/.env`
-- Copy `frontend/.env.example` to `frontend/.env`
-
-3. Start the backend:
+### 2. Backend Setup
 
 ```bash
-cd backend
+cd server
+npm install
+```
+
+Create `.env`
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
+```
+
+Run backend:
+
+```bash
 npm run dev
 ```
 
-4. Start the frontend:
+---
+
+### 3. Frontend Setup
 
 ```bash
-cd frontend
+cd client
+npm install
 npm run dev
 ```
 
-5. Open `http://localhost:5173`
+---
 
-## Notes
+## Current Implementation Status
 
-- The backend defaults to port `5001` to avoid a local port conflict discovered during setup.
-- `ADMIN_EMAIL` controls which registered email becomes an admin account.
-- If a local MongoDB server is unavailable, the backend can fall back to an in-memory MongoDB instance for development.
+### Completed
+- Authentication system
+- OTP password reset
+- Profile management
+- Theme switching
+- Image uploads
+- Comments and likes
+- Dashboard analytics
+
+### Planned Improvements
+- Real-time chat using Socket.io
+- Video collaboration rooms
+- Push notifications
+- Cloud image storage
+
+---
+
+## Engineering Focus
+
+This project was built with emphasis on:
+
+- Clean modular architecture
+- Role-based access control
+- User experience and interaction design
+- Real-world product thinking
+- Scalable backend design
+
+---
+
+## Author
+
+Built by Navya as part of full-stack product engineering practice.
